@@ -1,9 +1,10 @@
-const hours = document.querySelector(".hours");
-const minutes = document.querySelector(".minutes");
-const seconds = document.querySelector(".seconds");
+const secondHand = document.querySelector(".seconds-hand");
+const minutesHand = document.querySelector(".minutes-hand");
+const hoursHand = document.querySelector(".hours-hand");
 
 const getTime = () => {
     const date = new Date();
+
     return {
         hours: date.getHours(),
         minutes: date.getMinutes(),
@@ -13,7 +14,9 @@ const getTime = () => {
 
 setInterval(() => {
     const { seconds, minutes, hours } = getTime();
-    seconds.style.transform = `translate(0, -50%) rotate(${seconds * 6}deg)`;
-    minutes.style.transform = `translate(0, -50%) rotate(${minutes * 6}deg)`;
-    hours.style.transform = `translate(0, -50%) rotate(${hours * 30}deg)`;
+    secondHand.style.transform = `translate(0, -50%) rotate(${seconds * 6}deg)`;
+    minutesHand.style.transform = `translate(0, -50%) rotate(${
+        minutes * 6
+    }deg)`;
+    hoursHand.style.transform = `translate(0, -50%) rotate(${hours * 30}deg)`;
 }, 1000);
